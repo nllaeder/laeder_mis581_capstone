@@ -1,0 +1,1 @@
+gcloud iam service-accounts create data-integration-svc --description="Service account for the data integration platform" --display-name="Data Integration Service"
