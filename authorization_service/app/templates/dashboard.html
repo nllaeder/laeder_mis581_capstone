@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Marketing Data Connector</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .logout-button { padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .connect-btn { padding: 10px 20px; background-color: #4285F4; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ user.name }}!</h1>
+    <p>This is your dashboard. Here you can connect your marketing platforms and sync your data.</p>
+    <div>
+        <a href="{{ url_for('auth.connect_mailchimp') }}"><button class="connect-btn">Connect Mailchimp</button></a>
+        <a href="{{ url_for('auth.connect_constantcontact') }}"><button class="connect-btn">Connect Constant Contact</button></a>
+    </div>
+    <a href="{{ url_for('logout') }}"><button class="logout-button">Logout</button></a>
+</body>
+</html>
