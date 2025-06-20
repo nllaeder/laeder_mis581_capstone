@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mailchimp Data Extractor{% endblock %}</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; background-color: #f4f7f6; color: #333; }
+        .header { background-color: #ffffff; padding: 1rem 2rem; border-bottom: 1px solid #dee2e6; display: flex; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .header img { height: 40px; margin-right: 1.5rem; }
+        .header h1 { font-size: 1.5rem; margin: 0; color: #004085; }
+        .content { padding: 2rem; max-width: 800px; margin: auto; }
+        .card { background: #fff; border-radius: 8px; padding: 2rem; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { color: #333; }
+        p { line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        <h1>Data Extractor</h1>
+    </header>
+    <main class="content">
+        <div class="card">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+</body>
+</html> 

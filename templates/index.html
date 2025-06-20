@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Connect to Mailchimp{% endblock %}
+
+{% block content %}
+    <h2>Connect Your Mailchimp Account</h2>
+    <p>
+        Welcome to the Data Extractor. This application will securely connect to your Mailchimp account
+        using OAuth 2.0 to authorize access.
+    </p>
+    <p>
+        Once authorized, it will extract your campaign data and load it into Google BigQuery for analysis.
+        Click the button below to begin. You will be redirected to Mailchimp to log in
+        and approve the connection.
+    </p>
+    <br>
+    <a href="{{ url_for('authorize') }}" class="button">Connect to Mailchimp</a>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.2s ease-in-out;
+        }
+        .button:hover {
+            background-color: #0069d9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        .button:active {
+            background-color: #0062cc;
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+{% endblock %} 
