@@ -1,21 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}Connect to Mailchimp{% endblock %}
+{% block title %}Connect to Service{% endblock %}
 
 {% block content %}
-    <h2>Connect Your Mailchimp Account</h2>
+    <h2>Connect Your Account</h2>
     <p>
-        Welcome to the Data Extractor. This application will securely connect to your Mailchimp account
+        Welcome to the Data Extractor. This application will securely connect to your Mailchimp or Constant Contact account
         using OAuth 2.0 to authorize access.
     </p>
     <p>
         Once authorized, it will extract your campaign data and load it into Google BigQuery for analysis.
-        Click the button below to begin. You will be redirected to Mailchimp to log in
+        Click the appropriate button below to begin. You will be redirected to the service to log in
         and approve the connection.
     </p>
     <br>
-    <a href="{{ url_for('authorize') }}" class="button">Connect to Mailchimp</a>
+    <div class="button-container">
+        <a href="{{ url_for('authorize', peer=2) }}" class="button">Connect to Mailchimp (Peer 2)</a>
+        <a href="{{ url_for('cc_authorize', peer=1) }}" class="button cc-button">Connect to Constant Contact (Peer 1)</a>
+    </div>
     <style>
+        .button-container {
+            display: flex;
+            gap: 20px; /* space between buttons */
+        }
         .button {
             display: inline-block;
             padding: 12px 24px;
@@ -32,10 +39,16 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: all 0.2s ease-in-out;
         }
+        .button.cc-button {
+            background-color: #ff6319; /* A different color for CC */
+        }
         .button:hover {
             background-color: #0069d9;
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        .button.cc-button:hover {
+            background-color: #e6540e;
         }
         .button:active {
             background-color: #0062cc;
